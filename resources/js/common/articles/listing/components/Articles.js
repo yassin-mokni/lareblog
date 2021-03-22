@@ -17,11 +17,30 @@ class Articles extends Component {
     }
   }
   
+  handleSubmit(e) {
+    e.preventDefault()
+    const article = this.state.article
+    const { errors } = this.validator
+    
+    this.validator.validateAll(article)
+      .then((success) => {
+        if (success) {
+          this.submit(article)
+        } else {
+          this.setState({ errors })
+        }
+      })
+  }
+  
+  submit() {
+  }
+
   renderArticles() {
     return this.props.articles.map((article, index) => {
       return <Article key={`article-${index}`}
                       index={index}
-                      article={article}/>
+                      article={article}
+                      handleComment={this.handleSubmit}/>
     })
   }
   

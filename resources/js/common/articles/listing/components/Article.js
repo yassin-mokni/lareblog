@@ -19,6 +19,7 @@ const renderPublishedAt = (article) => {
   return article.publishedAt && `at ${article.publishedAt.format('MMMM D, YYYY')}`
 }
 
+
 function render({ article }) {
   return <div className="col-12 col-sm-9 mb-5 mx-auto">
     <div className="card">
@@ -45,7 +46,9 @@ function render({ article }) {
             </div>
             <div className="bg-light p-2">
               <div className="d-flex flex-row align-items-start">
+                {/* <form onSubmit={this.handleComment}> */}
                 <textarea className="form-control ml-1 shadow-none textarea"></textarea>
+                {/* </form> */}
               </div>
               <div className="mt-2 text-right">
                 <button className="btn btn-primary btn-sm shadow-none" type="button">Post comment</button>
